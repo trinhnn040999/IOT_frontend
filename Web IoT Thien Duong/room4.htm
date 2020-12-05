@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IoT - Nhóm 07</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/google.font.css" rel="stylesheet">
+</head>
+<body id="page-top">	
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.htm">
+            <div class="sidebar-brand-text mx-3">TRINH CUTE</div>
+            </a>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+        
+            <li class="nav-item active">
+                <a class="nav-link" href="room1.htm">
+                <i class="fas fa-fw fa-tasks"></i>
+                <span>Phòng khách</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="room2.htm">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Phòng bếp</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="room3.htm">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Phòng ngủ</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="room4.htm">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Phòng tắm</span></a>
+            </li>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                      <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav ml-auto">
+                  
+                      <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                          <form class="form-inline mr-auto w-100 navbar-search">
+                            <div class="input-group">
+                              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                  <i class="fas fa-search fa-sm"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <div class="topbar-divider d-none d-sm-block"></div>
+                      <!-- Nav Item - User Information -->
+                      <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ngọc Trinh</span>
+                          <img class="img-profile rounded-circle" src="assets/img/books.png">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#infoModal" onclick="loadInfo();">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Update information
+                          </a>
+                          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePassModal">
+                            <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Change password
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Đăng xuất
+                          </a>
+                        </div>
+                      </li>
+                      <!-- Logout Modal--><?php getModal("logout")?>
+                      <!-- Info Modal-->
+                      <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Update personal information</h5>
+                              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" id="infoModalBody">
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-primary" onclick="updateInfo(this)">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Change Password Modal-->
+                      <div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Change password</h5>
+                              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-group row">
+                                <label class="col-sm-5 col-form-label">Old password</label>
+                                <div class="col-sm-7">
+                                  <input type="password" class="form-control" id="old_pass" required>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-5 col-form-label">New password</label>
+                                <div class="col-sm-7">
+                                  <input type="password" class="form-control" id="new_pass" required>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-5 col-form-label">Retype new password</label>
+                                <div class="col-sm-7">
+                                  <input type="password" class="form-control" id="new_pass2" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-primary" onclick="updatePassword(this)">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                    <div style="width: 1200px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+                        <div class="row" style="margin-bottom: 50px;">
+                            <div class="col-md-12">
+                                <div style="width: 100%; text-align: center; font-size: 54px; color: rgb(5, 4, 100); font-weight: bolder; font-family: sans-serif;">PHÒNG TẮM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 row">
+                                <div class="col-md-6">
+                                    <img src="assets/img/tem.png" style="width: 80%; height: auto;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="font-size: 45px; color: red; margin-top: 30px; font-weight: bold;">
+                                        20<sup>o</sup>C
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 row">
+                                <div class="col-md-6">
+                                    <img src="assets/img/hum.png" style="width: 80%; height: auto;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="font-size: 45px; color: rgb(4, 20, 163); margin-top: 30px; font-weight: bold;">
+                                        80%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 row">
+                                <div class="col-md-6">
+                                    <img src="assets/img/gas.png" style="width: 80%; height: auto;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="font-size: 45px; color: rgb(4, 75, 13); margin-top: 20px; font-weight: bold; line-height: normal;">
+                                        An toàn
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top: 60px; margin-bottom: 30px; font-size: 40px; text-align: center; font-weight: bold; color: rgb(5, 4, 100);">
+                                BẢNG ĐIỀU KHIỂN
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <img id="door_img" src="assets/img/door_closed.png" style="margin-top: 25px; width: auto; height: 140px;">
+                                </div>
+                                <div class="col-md-6" style="margin-top: 70px;">
+                                    <label class="switch">
+                                        <input type="checkbox" id="door_control" onchange="doorChange(this)">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <img id="shower_img" src="assets/img/shower_off.jpg" style="margin-top: 25px; width: auto; height: 140px;">
+                                </div>
+                                <div class="col-md-6" style="margin-top: 70px;">
+                                    <label class="switch">
+                                        <input type="checkbox" id="fan_control" onchange="showerChange(this)">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <img id="lamp_img" src="assets/img/lamp_off.png" style="margin-top: 25px; width: auto; height: 140px;">
+                                </div>
+                                <div class="col-md-6" style="margin-top: 80px;">
+                                    <label class="switch">
+                                        <input type="checkbox" id="lamp_control" onchange="lampChange(this)">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <img id="nonglanh_img" src="assets/img/nonglanh_off.png" style="margin-top: 40px; width: auto; height: 140px;">
+                                </div>
+                                <div class="col-md-6" style="margin-top: 80px;">
+                                    <label class="switch">
+                                        <input type="checkbox" id="dieuhoa_control" onchange="nonglanhChange(this)">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var intervalObj;
+        function lampChange(obj){
+            if(obj.checked){
+                document.getElementById("lamp_img").src = "assets/img/lamp_on.png";
+            }
+            else{
+                document.getElementById("lamp_img").src = "assets/img/lamp_off.png";
+            }
+        }
+        function showerChange(obj){
+            if(obj.checked){
+                document.getElementById("shower_img").src = "assets/img/shower_on.jpg";
+            }
+            else{
+                document.getElementById("shower_img").src = "assets/img/shower_off.jpg";
+            }
+        }
+        function doorChange(obj){
+            if(obj.checked){
+                document.getElementById("door_img").src = "assets/img/door_open.png";
+            }
+            else{
+                document.getElementById("door_img").src = "assets/img/door_closed.png";
+            }
+        }
+        function nonglanhChange(obj){
+            if(obj.checked){
+                document.getElementById("nonglanh_img").src = "assets/img/nonglanh_on.png";
+            }
+            else{
+                document.getElementById("nonglanh_img").src = "assets/img/nonglanh_off.png";
+            }
+        }
+    </script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/bootstrap4-toggle.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/popper.min.js"></script>
+    <script src="assets/js/myscript.js"></script>
+</body>
+</html>

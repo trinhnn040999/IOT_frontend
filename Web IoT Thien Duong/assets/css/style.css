@@ -11390,7 +11390,7 @@ a:focus {
 
 @media (min-width:768px) {
   .sidebar {
-    width: 14rem !important
+    width: 15rem !important
   }
 
   .sidebar .nav-item .collapse {
@@ -12339,4 +12339,27 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+#login-btn-panel{
+  z-index: 0;
+  position: absolute;
+  bottom: 12%;
+  left: 8%;
+  height: 30%;
+  width: 23%;
+}
+#login-btn-panel input{
+  font-size: 20px!important;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#login-btn-panel button{
+  font-size: 20px!important;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
